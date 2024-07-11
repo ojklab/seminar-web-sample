@@ -102,9 +102,13 @@ nav#nav_inHeader a {
   color: white;
 }
 
-/* figure要素の設定 */
+/* 画像まわりの共通設定 */
 figure {
   margin: 0;
+}
+
+figure img {
+  width: 100%;
 }
 
 /* セクション */
@@ -142,7 +146,8 @@ section h2:not(:first-child) {
   margin-top: 2em;
 }
 
-/* セクション内の要素を上から順に並べていく */
+/*** セクション1： 要素を上から順に並べていく ***/
+
 section#sec1 .sec-container {
   /* レイアウトに関しては何もしなくてよい */
 
@@ -152,7 +157,13 @@ section#sec1 .sec-container {
   margin: 0 auto;
 }
 
-/* セクション内の要素を横並びにする */
+section#sec1 figure {
+  width: 70%; /* 画像サイズを調整したい場合 */
+  margin: 0 auto;
+}
+
+/*** セクション2： 要素を横並びにする ***/
+
 section#sec2 .sec-container {
   /* 装飾 */
   width: 90%;
@@ -162,15 +173,20 @@ section#sec2 .sec-container {
 section#sec2 .flex-container {
   display: flex;
   justify-content: left;
-  flex-wrap: wrap; /* 幅が足りないときに折り返したいとき */
-  gap: 10px; /* 要素間の幅 */
+  flex-wrap: nowrap; /* 幅が足りないときに折り返したいとき */
+  gap: 0px; /* 要素間の幅 */
 }
 
 section#sec2 figure {
-  flex: 1 1 100px;
+  flex: 1 1 300px; /* 画像サイズ（300pxの部分を適当に調整） */
 }
 
-/* 画像とテキストの上下セットを横並びにしたい場合 */
+section#sec2 p {
+  width: 100%; /* 必要 */
+}
+
+/*** セクション3： 画像とテキストの上下セットを横並びしたい場合 ***/
+
 section#sec3 .flex-container {
   display: flex;
   justify-content: space-around;
@@ -182,9 +198,38 @@ section#sec3 .content {
   max-width: 300px; /* 横並びにしたい要素の幅を指定 */
 }
 
+/*** セクション4： 画像とテキストの横並びセットを更に横並びしたい場合 ***/
+
+section#sec4 .sec-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* 幅が足りないときに折り返したいとき */
+  gap: 20px; /* 要素間の幅 */
+}
+
+section#sec4 .flex-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* 要素間の幅 */
+  width: 40%; /* 横並び要素の幅 */
+}
+
+section#sec4 figure {
+  flex: 1 1 100px; /* 画像サイズ（100pxの部分を適当に調整） */
+}
+
+/*** セクション5： ネタ切れ ***/
+section#sec5 .sec-container {
+  padding: 0 50px;
+}
+
+section#sec4 p {
+  width: 100%; /* 必要 */
+}
+
 /* フッター */
 footer {
   margin-top: 1.5em;
-  padding: 1em;
+  padding: 1em 1em 3em; /* heightで調整してもよい*/
   background-color: lightgrey;
 }
