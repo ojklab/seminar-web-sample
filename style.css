@@ -4,87 +4,182 @@
 }
 
 * {
+  /* パディングとボーダーを含んだwidth／heightに */
   box-sizing: border-box;
 }
 
 body {
-  background-color: beige; /* 背景色をつけたい場合 */
+  background-color: beige; /* 背景色を付けたい場合のみ */
   margin: 0;
   padding: 0;
+  /* ページ全体の幅は div#container に設定する */
 }
 
-#container {
-  max-width: 800px; /* 100vw で全幅 */
-  background-color: white;
-  margin: 0 auto;
+div#container {
+  max-width: 800px; /* 全幅にしたければ「100vw」と指定 */
+  margin: 0 auto; /* 全体を中央揃え */
+  background-color: white; /* 背景色を付けたい場合のみ */
 }
 
 /* ヘッダー */
 header {
-  position: relative;
+  height: 300px; /* 高さ */
+  /* 幅（width）は既定値１００％なので基本はそのままでOK */
+
+  /* 背景画像の設定 */
   background-image: url('fig/header-img.png');
-  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; /* contain */
-  height: 300px;
+  background-size: cover; /* contain（切り替えて確認する） */
+  background-position: center; /* coverの場合、どこを切り取るか */
+
+  /* nav要素をヘッダーの中（下端）に置きたい場合のみ */
+  position: relative;
 }
 
+/* ヘッダーのタイトル */
 header h1 {
+  margin-top: 0; /* これがないと上に余白ができる */
+
+  /* 装飾 */
   font-size: 3em;
-  margin-top: 0;
   text-align: center;
 }
 
+/* ヘッダー内の文章（別にdivでもいい） */
 header p {
+  /* 装飾 */
   width: 80%;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
 }
 
-/* ページ内リンク */
+/* ページ内リンク（共通項） */
 nav {
-  background-color: rgba(0, 0, 0, 0.1);
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between; /* space-around*/
-  padding: 0.5em;
+  display: flex; /* 横並びにする */
+  flex-wrap: wrap; /* 幅が狭いときに改行する */
+  justify-content: space-around; /* 他の並べ方は検索する */
+
+  /* justify-contentでleft／rightにした場合は間隔をgapで指定 */
+  /* gap: 1em; */
+
+  /* nav領域の上下の余白はpaddingで */
+  padding: 0.5em 0;
 }
 
+/* 個々のリンクのスタイルはa要素に対して行う */
 nav a {
-  display: block;
-  width: 25%; /* リンクの個数で変える */
-  color: saddlebrown; /* リンクの文字色 */
-  text-align: center;
-  text-decoration: none;
+  width: 20%; /* gapを設定していると */
+  display: block; /* こうしておくとクリックしやすい */
+
+  text-decoration: none; /* 下線が必要なければ */
+  text-align: center; /* デザインによっては無くてもよい */
+}
+
+/* ページ内リンク（ヘッダーの上に置く場合） */
+nav#nav_top {
+  /* ヘッダー内の下に配置しないときな特に何もしなくてよい */
+
+  /* 装飾 */
+  background-color: saddlebrown;
+}
+
+nav#nav_top a {
+  /* 装飾 */
+  color: white;
+}
+
+/* ページ内リンク（ヘッダーの下に置く場合） */
+nav#nav_inHeader {
+  position: absolute; /* header要素を基準にする */
+  bottom: 0; /* header要素の下端から距離０ */
+  width: 100%; /* positionとflexboxを同時に使うときは必須 */
+
+  /* 装飾 */
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+nav#nav_inHeader a {
+  /* 装飾 */
+  color: white;
+}
+
+/* figure要素の設定 */
+figure {
+  margin: 0;
 }
 
 /* セクション */
 section {
+  /* 装飾 */
   margin-top: 1.5em;
   padding: 1em;
 }
 
-section h1 {
-  background-color: wheat;
-  padding: 0.5em 1em;
-  border-radius: 1.25em;
-}
-
-/* セクションで交互に背景色 */
+/* セクションで交互に背景色を変えたい場合（even／odd） */
 section:nth-of-type(even) {
   background-color: snow;
 }
 
-/* 要素を横並びにしてみる */
-section:nth-of-type(even) .flex-container {
-  display: flex;
+/* セクションの見出し */
+section h1 {
+  /* 装飾 */
+  background-color: wheat;
+  padding: 0.5em 1em;
+  border-radius: 1.25em; /* 角丸 */
 }
 
-section:nth-of-type(even) p {
-  background-color: honeydew;
-  width: 50%;
+/* セクションの小見出し */
+section h2 {
+  /* 装飾 */
+  font-size: 1.2em;
+  text-align: left;
+  border-left: solid 1.2em saddlebrown;
+  padding-left: 0.5em;
+}
+
+/* ２つ目以降の小見出しのみへの装飾とか */
+section h2:not(:first-child) {
+  /* 装飾 */
+  margin-top: 2em;
+}
+
+/* セクション内の要素を上から順に並べていく */
+section#sec1 .sec-container {
+  /* レイアウトに関しては何もしなくてよい */
+
+  /* 装飾（例えば中央揃えする場合とか） */
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* セクション内の要素を横並びにする */
+section#sec2 .sec-container {
+  /* 装飾 */
+  width: 90%;
+  margin: 0 auto;
+}
+
+section#sec2 .flex-container {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap; /* 幅が足りないときに折り返したいとき */
+  gap: 10px; /* 要素間の幅 */
+}
+
+section#sec2 figure {
+  flex: 1 1 100px;
+}
+
+/* 画像とテキストの上下セットを横並びにしたい場合 */
+section#sec3 .flex-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* 幅が足りないときに折り返したいとき */
+  gap: 20px; /* 要素間の幅 */
+}
+
+section#sec3 .content {
+  max-width: 300px; /* 横並びにしたい要素の幅を指定 */
 }
 
 /* フッター */
