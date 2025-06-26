@@ -146,9 +146,9 @@ section h2:not(:first-child) {
   margin-top: 2em;
 }
 
-/*** セクション1： 要素を上から順に並べていく ***/
+/*** タイプ1： 要素を上から順に並べていく ***/
 
-section#sec1 .sec-container {
+section.type1 .sec-container {
   /* レイアウトに関しては何もしなくてよい */
 
   /* 装飾（例えば中央揃えする場合とか） */
@@ -157,74 +157,74 @@ section#sec1 .sec-container {
   margin: 0 auto;
 }
 
-section#sec1 figure {
+section.type1 figure {
   width: 70%; /* 画像サイズを調整したい場合 */
   margin: 0 auto;
 }
 
-/*** セクション2： 要素を横並びにする ***/
+/*** タイプ2： 要素を横並びにする ***/
 
-section#sec2 .sec-container {
+section.type2 .sec-container {
   /* 装飾 */
   width: 90%;
   margin: 0 auto;
 }
 
-section#sec2 .flex-container {
+section.type2 .flex-container {
   display: flex;
   justify-content: left;
   flex-wrap: nowrap; /* 幅が足りないときに折り返したいとき */
   gap: 0px; /* 要素間の幅 */
 }
 
-section#sec2 figure {
+section.type2 figure {
   flex: 1 1 300px; /* 画像サイズ（300pxの部分を適当に調整） */
 }
 
-section#sec2 p {
+section.type2 p {
   width: 100%; /* 必要 */
 }
 
-/*** セクション3： 画像とテキストの上下セットを横並びしたい場合 ***/
+/*** タイプ3： 画像とテキストの上下セットを横並びしたい場合 ***/
 
-section#sec3 .flex-container {
+section.type3 .flex-container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap; /* 幅が足りないときに折り返したいとき */
   gap: 20px; /* 要素間の幅 */
 }
 
-section#sec3 .content {
+section.type3 .content {
   max-width: 300px; /* 横並びにしたい要素の幅を指定 */
 }
 
-/*** セクション4： 画像とテキストの横並びセットを更に横並びしたい場合 ***/
+/*** タイプ4： 画像とテキストの横並びセットを更に横並びしたい場合 ***/
 
-section#sec4 .sec-container {
+section.type4 .sec-container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap; /* 幅が足りないときに折り返したいとき */
   gap: 20px; /* 要素間の幅 */
 }
 
-section#sec4 .flex-container {
+section.type4 .flex-container {
   display: flex;
   justify-content: space-between;
   gap: 10px; /* 要素間の幅 */
   width: 40%; /* 横並び要素の幅 */
 }
 
-section#sec4 figure {
+section.type4 figure {
   flex: 1 1 100px; /* 画像サイズ（100pxの部分を適当に調整） */
 }
 
-/*** セクション5： ネタ切れ ***/
-section#sec5 .sec-container {
-  padding: 0 50px;
+section.type4 p {
+  width: 100%; /* 必要 */
 }
 
-section#sec4 p {
-  width: 100%; /* 必要 */
+/*** type5： ネタ切れ ***/
+section.type5 .sec-container {
+  padding: 0 50px;
 }
 
 /* フッター */
