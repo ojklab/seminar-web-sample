@@ -50,6 +50,7 @@ header p {
   /* 装飾 */
   width: 80%;
   margin: 0 auto;
+  line-height: 2;
 }
 
 /* ページ内リンク（共通項） */
@@ -129,6 +130,7 @@ section h1 {
   background-color: wheat;
   padding: 0.5em 1em;
   border-radius: 1.25em; /* 角丸 */
+  margin-bottom: 1.5em;
 }
 
 /* セクションの小見出し */
@@ -146,14 +148,24 @@ section h2:not(:first-child) {
   margin-top: 2em;
 }
 
+/* 行間 */
+section p {
+  line-height: 1.8;
+}
+section ul {
+  line-height: 1.8;
+}
+section li:not(:last-of-type) {
+  padding-bottom: 1ex;
+}
+
 /*** タイプ1： 要素を上から順に並べていく ***/
 
 section.type1 .sec-container {
   /* レイアウトに関しては何もしなくてよい */
 
   /* 装飾（例えば中央揃えする場合とか） */
-  width: 80%;
-  text-align: center;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -178,7 +190,7 @@ section.type2 .flex-container {
 }
 
 section.type2 figure {
-  flex: 1 1 300px; /* 画像サイズ（300pxの部分を適当に調整） */
+  flex: 1 0 300px; /* 画像サイズ（300pxの部分を適当に調整） */
 }
 
 section.type2 p {
@@ -215,7 +227,7 @@ section.type4 .flex-container {
 }
 
 section.type4 figure {
-  flex: 1 1 100px; /* 画像サイズ（100pxの部分を適当に調整） */
+  flex: 1 0 100px; /* 画像サイズ（100pxの部分を適当に調整） */
 }
 
 section.type4 p {
