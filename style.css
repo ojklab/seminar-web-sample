@@ -16,7 +16,7 @@ body {
 }
 
 div#container {
-  max-width: 800px; /* 全幅にしたければ「100vw」と指定 */
+  max-width: 900px; /* 全幅にしたければ「100vw」と指定 */
   margin: 0 auto; /* 全体を中央揃え */
   background-color: white; /* 背景色を付けたい場合のみ */
 }
@@ -143,9 +143,9 @@ section h2 {
 }
 
 /* ２つ目以降の小見出しのみへの装飾とか */
-section h2:not(:first-child) {
+section h2 {
   /* 装飾 */
-  margin-top: 2em;
+  margin-top: 1.5em;
 }
 
 /* 行間 */
@@ -190,11 +190,24 @@ section.type2 .flex-container {
 }
 
 section.type2 figure {
-  flex: 1 0 300px; /* 画像サイズ（300pxの部分を適当に調整） */
+  flex: 0 0 300px; /* 画像サイズ（300pxの部分を適当に調整） */
 }
 
 section.type2 p {
   width: 100%; /* 必要 */
+}
+
+/* スマホ */
+@media screen and (max-width: 520px) {
+  section.type2 .flex-container {
+    display: block;
+  }
+
+  section.type2 figure {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /*** タイプ3： 画像とテキストの上下セットを横並びしたい場合 ***/
@@ -210,6 +223,29 @@ section.type3 .content {
   max-width: 300px; /* 横並びにしたい要素の幅を指定 */
 }
 
+section.type3 h2 {
+  margin-top: 0;
+}
+
+/* スマホ */
+@media screen and (max-width: 520px) {
+  section.type3 .flex-container {
+    display: block;
+  }
+
+  section.type3 .content {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  section.type3 figure {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 /*** タイプ4： 画像とテキストの横並びセットを更に横並びしたい場合 ***/
 
 section.type4 .sec-container {
@@ -222,16 +258,38 @@ section.type4 .sec-container {
 section.type4 .flex-container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: nowrap;
   gap: 10px; /* 要素間の幅 */
-  width: 40%; /* 横並び要素の幅 */
+  min-width: 400px; /* 横並び要素の幅 */
 }
 
 section.type4 figure {
-  flex: 1 0 100px; /* 画像サイズ（100pxの部分を適当に調整） */
+  flex: 0 0 150px; /* 画像サイズ（100pxの部分を適当に調整） */
 }
 
 section.type4 p {
   width: 100%; /* 必要 */
+}
+
+/* スマホ */
+@media screen and (max-width: 520px) {
+  section.type4 .sec-container {
+    width: 90%;
+    display: block;
+  }
+
+  section.type4 .flex-container {
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  section.type4 figure {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /*** type5： ネタ切れ ***/
